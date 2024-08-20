@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import OpenAI from "openai";
+import cors from "cors";
 
 // Load environment variables
 dotenv.config();
@@ -13,6 +14,15 @@ const openai = new OpenAI({
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Enable CORS for your ngrok URL
+const corsOptions = {
+  origin: "https://aa07-82-17-133-111.ngrok-free.app",
+  methods: "GET,POST",
+  allowedHeaders: "Content-Type",
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json()); // Middleware to parse JSON bodies
 
