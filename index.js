@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 
 // Enable CORS for your ngrok URL
 const corsOptions = {
-  origin: "https://149b-194-75-196-216.ngrok-free.app",
+  origin: "https://1e53-82-17-133-111.ngrok-free.app",
   methods: "GET,POST",
   allowedHeaders: "Content-Type",
 };
