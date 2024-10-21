@@ -13,11 +13,11 @@ const openai = new OpenAI({
 });
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 // Enable CORS for your ngrok URL
 const corsOptions = {
-  origin: "https://1e53-82-17-133-111.ngrok-free.app",
+  origin: "https://fdf3-82-17-133-111.ngrok-free.app",
   methods: "GET,POST",
   allowedHeaders: "Content-Type",
 };
@@ -42,12 +42,13 @@ app.post("/generate-letter", async (req, res) => {
   try {
     // Create a chat completion request
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o", // or 'gpt-4', based on your access
+      model: "gpt-4o-mini",
+      max_tokens: 400,
       messages: [
         {
           role: "system",
           content:
-            "You help write personalised letters from Santa Clause. Your response is only the letter and nothing else. Do not start or end your reply with comments or additional text. Put your reply the letter inside these special characters: @@ the letter $$ Your response will be interpreted by an application logic and it will take whatever you put after @@ and before $$.",
+            "You help write personalised letters. Your response is only the letter and nothing else. Do not start or end your reply with comments or additional text. Put your reply, the letter, inside these special characters: @@ the letter $$ Your response will be interpreted by an app and it will take what you put after @@ and before $$.",
         },
         { role: "user", content: prompt },
       ],
