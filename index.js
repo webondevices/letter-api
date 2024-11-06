@@ -43,7 +43,7 @@ app.post("/generate-letter", async (req, res) => {
     // Create a chat completion request
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
-      max_tokens: 320,
+      max_tokens: 300,
       messages: [
         {
           role: "system",
