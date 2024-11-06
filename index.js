@@ -48,7 +48,7 @@ app.post("/generate-letter", async (req, res) => {
         {
           role: "system",
           content:
-            "You help write personalised letters. Your response is only the letter and nothing else. Do not start or end your reply with comments or additional text. Put your reply, the letter, inside these special characters: @@ the letter $$ Your response will be interpreted by an app and it will take what you put after @@ and before $$.",
+            "You help write personalised letters. Your response is only the letter and nothing else. Do not start or end your reply with comments or additional text. Put your reply, the letter, inside these special characters: @@ the letter $$ Your response will be interpreted by an app and it will take what you put after @@ and before $$. Make the letter short, to the point, we only have a short space for the text.",
         },
         { role: "user", content: prompt },
       ],
